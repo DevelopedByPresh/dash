@@ -68,8 +68,9 @@ export default function CreateNewPassword() {
     <Grid
       container
       justifyContent="center"
-      alignItems="center"
-      sx={{ minHeight: "100vh"}}
+   
+     // alignItems="center"
+      sx={{ minHeight: "100vh", mt:8}}
     >
       <Grid
         item

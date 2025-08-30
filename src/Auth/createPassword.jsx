@@ -22,7 +22,8 @@ const CreatePassword = () => {
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        mt:5,
+      //  alignItems: "center",
       //  backgroundColor: "#0A0047", // dark background
         p: 2,
       }}

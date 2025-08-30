@@ -26,8 +26,9 @@ const SelectChannel = () => {
       sx={{
         minHeight: "100vh",
         display: "flex",
+        mt:8,
         justifyContent: "center",
-        alignItems: "center",
+      //  alignItems: "center",
       //  backgroundColor: "#0A0047", // Dark background
         p: 2,
       }}
@@ -83,7 +84,7 @@ const SelectChannel = () => {
      
         <Typography
           sx={{
-            fontSize: 14,
+            fontSize: 12,
             color: "#999",
           //  mb: 4,
             alignItems:'center',

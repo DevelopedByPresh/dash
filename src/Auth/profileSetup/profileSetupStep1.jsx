@@ -165,7 +165,8 @@ const ProfileStep1 = () => {
       {/* Right Panel */}
       <Box
         sx={{
-          width: { xs: "100%", md: "50%" },
+        //  width: { xs: "100%", md: "50%" },
+           width: { xs: "82%", md: "50%" },
           p: { xs: 3, md: 6 },
           display: "flex",
           flexDirection: "column",
@@ -205,11 +206,11 @@ const ProfileStep1 = () => {
 
 
           {/* Form Fields */}
-          <Stack spacing={1}>
+          <Stack spacing={1} alignItems='center'>
 
 
             <form >
-              <Grid container spacing={2}>
+              <Grid container spacing={2} sx={{     maxWidth: {xs:300, md:370}}}>
 
 
                 <Grid size={12}>
@@ -315,9 +316,8 @@ const ProfileStep1 = () => {
 
 
 
-                <Stack style={{ flexDirection: 'row', justifyContent: 'center', margin: '10px auto', gap: 5 }}>
                   
-                  <Box sx={{ minWidth: 185}}>
+                <Grid size={12}>
                      <InputLabel htmlFor="company-signup" style={{ fontSize: 10 }}>Country</InputLabel>
                     <FormControl
                       fullWidth
@@ -347,12 +347,12 @@ const ProfileStep1 = () => {
                         <MenuItem value={30}>Liberia</MenuItem>
                       </Select>
                     </FormControl>
-                  </Box>
+              </Grid>
 
 
 
 
-                  <Box sx={{ minWidth: 185 }}>
+                <Grid size={12}>
                      <InputLabel htmlFor="company-signup" style={{ fontSize: 10 }}>State</InputLabel>
                     <FormControl 
                     fullWidth 
@@ -381,9 +381,9 @@ const ProfileStep1 = () => {
                         <MenuItem value={30}>Kano</MenuItem>
                       </Select>
                     </FormControl>
-                  </Box>
-
-                </Stack>
+                  </Grid>
+{/* 
+                </Stack> */}
 
 
 
@@ -396,9 +396,8 @@ const ProfileStep1 = () => {
                   
 
 
-    <Stack style={{ flexDirection: 'row', justifyContent: 'center', margin: '10px auto', gap: 5 }}>
                   
-                  <Box sx={{ minWidth: 185}}>
+                 <Grid size={12}>
                      <InputLabel htmlFor="company-signup" style={{ fontSize: 10 }}>Worship Style</InputLabel>
                     <FormControl
                       fullWidth
@@ -428,12 +427,12 @@ const ProfileStep1 = () => {
                               <MenuItem value={30}>option5</MenuItem>
                       </Select>
                     </FormControl>
-                  </Box>
+                  </Grid>
 
 
 
 
-                  <Box sx={{ minWidth: 185 }}>
+                 <Grid size={12}>
                      <InputLabel htmlFor="company-signup" style={{ fontSize: 10 }}>Language</InputLabel>
                     <FormControl 
                     fullWidth 
@@ -462,9 +461,8 @@ const ProfileStep1 = () => {
                               <MenuItem value={30}>Spanish</MenuItem>
                       </Select>
                     </FormControl>
-                  </Box>
+                  </Grid>
 
-                </Stack>
 
 
 

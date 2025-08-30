@@ -1,17 +1,12 @@
-
-
-
 import background from '../images/background.png';
 import logo from "../images/logo1.png"
 import { useNavigate } from 'react-router-dom';
 
-// WorsshipCard.jsx
+// SelectPlatform.jsx
 import React, { useState } from 'react';
 import {
   Box,
-
   Typography,
-
   Avatar,
   Stack,
 } from '@mui/material';
@@ -24,17 +19,17 @@ const cardOptions = [
   {
     title: 'Church',
     description:
-      'Set up your account to manage events, community, and giving -all in one place',
+      'Set up your account to manage events, community, and giving - all in one place',
     icon: <ChurchIcon />,
     key: 'church',
-        icon2: <ArrowForwardIcon/>
+    icon2: <ArrowForwardIcon />
   },
   {
     title: 'Christian Producer',
     description: 'For creators sharing faith-based content through podcasts.',
     icon: <PersonOutlineIcon />,
     key: 'producer',
-    icon2: <ArrowForwardIcon/>
+    icon2: <ArrowForwardIcon />
   },
   {
     title: 'Christian Interdenominational group',
@@ -42,200 +37,188 @@ const cardOptions = [
       'Great for Christian fellowships, ministries, or cross-church initiatives.',
     icon: <GroupsIcon />,
     key: 'group',
-        icon2: <ArrowForwardIcon/>
+    icon2: <ArrowForwardIcon />
   },
 ];
 
-const WorsshipCard = () => {
+const SelectPlatform = () => {
   const [selectedKey, setSelectedKey] = useState('church');
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const Go = (key) => {
+    setSelectedKey(key);
+    setTimeout(() => {
+      navigate("/Authentication");
+    }, 1000);
+  };
 
-
-
-
-
-const Go = (key)=>{
-    setSelectedKey(key)
-    setTimeout(()=>{
-        navigate("/Authentication" )
-    },1000)
-}
-
-
-
-
-
-
-
-
-
-return (
-  <Box
-    sx={{
-      width: '100%',
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: { xs: 'column', md: 'row' },
-    }}
-  >
-    {/* Left Panel */}
+  return (
     <Box
       sx={{
-        width: { xs: '100%', md: '50%' },
-        position: 'relative',
-        backgroundImage: `url(${background})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        width: '100%',
+        minHeight: '100vh',
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        px: 4,
-        py: 5,
-        // height is now based on content, not forced to 100%
+        flexDirection: { xs: 'column', md: 'row' },
       }}
     >
-      {/* Overlay */}
+      {/* Left Panel */}
       <Box
         sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(14, 0, 85, 0.6)',
-          zIndex: 0,
-        }}
-      />
-
-      {/* Content */}
-      <Box
-        sx={{
+          flex: 1, // take available space
           position: 'relative',
-          zIndex: 1,
+          backgroundImage: `url(${background})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '100%',
+          justifyContent: 'center',
+          px: 4,
+          py: 5,
         }}
       >
-        <Typography
-          variant="h6"
+        {/* Overlay */}
+        <Box
           sx={{
-            fontWeight: 600,
-            color: '#fff',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(14, 0, 85, 0.6)',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Content */}
+        <Box
+          sx={{
+            position: 'relative',
+            zIndex: 1,
             display: 'flex',
-            alignItems: 'center',
-            gap: 1,
-            mb: 2,
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '100%',
           }}
         >
-          <img src={logo} alt="Logo" height={24} /> Worsship
-        </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 600,
+              color: '#fff',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+              mb: 2,
+            }}
+          >
+            <img src={logo} alt="Logo" height={24} /> Worsship
+          </Typography>
 
-        <Box sx={{ mt: 'auto' }}>
-          <Typography variant="h6" sx={{ fontWeight: 700, color: '#fff' }}>
-            Welcome to Worsship
+          <Box sx={{ mt: 'auto' }}>
+            <Typography variant="h6" sx={{ fontWeight: 700, color: '#fff' }}>
+              Welcome to Worsship
+            </Typography>
+            <Typography variant="body2" sx={{ mt: 1, color: '#fff' }}>
+              Discover . Connect . Worship
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Right Panel */}
+      <Box
+        sx={{
+          flex: 1, // take remaining space
+          p: { xs: 3, md: 5 },
+          backgroundColor: '#fff',
+          display: 'flex',
+         // justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        {/* Inner container */}
+        <Box
+          sx={{
+            width: '100%',
+            maxWidth: 360, // keeps inputs/cards narrower
+            mx: 'auto',
+           // textAlign: 'center',
+          }}
+        >
+          <Typography sx={{ fontWeight: 'bold', mb: 1 }}>
+            Join The Worsship Family!
           </Typography>
-          <Typography variant="body2" sx={{ mt: 1, color: '#fff' }}>
-            Discover . Connect . Worship
+          <Typography sx={{ color: '#666', mb: 3, fontSize: 15 }}>
+            Let’s get started by telling us which kind of faith platform you’re setting up.
           </Typography>
+
+          {/* Option Boxes */}
+          <Stack spacing={2} alignItems="center">
+            {cardOptions.map((card) => {
+              const isSelected = selectedKey === card.key;
+              return (
+                <Box
+                  key={card.key}
+                  onClick={() => Go(card.key)}
+                  sx={{
+                    width: '100%',
+                    maxWidth: 300, // prevent stretching on mobile & desktop
+                    borderRadius: 3,
+                    border: isSelected ? '2px solid #5B2EFF' : '1px solid #E0E0E0',
+                    cursor: 'pointer',
+                    transition: '0.2s',
+                    '&:hover': { boxShadow: 3 },
+                    backgroundColor: isSelected ? '#F6F1FF' : 'white',
+                    px: 3,
+                    py: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                  }}
+                >
+                  <Avatar
+                    sx={{
+                      bgcolor: isSelected ? '#5B2EFF' : '#F3F3F3',
+                      color: isSelected ? '#fff' : '#333',
+                    }}
+                  >
+                    {card.icon}
+                  </Avatar>
+
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      width: '100%',
+                    }}
+                  >
+                    <Box>
+                      <Typography variant="subtitle1" sx={{ fontWeight: 600, fontSize: '0.7rem' }}>
+                        {card.title}
+                      </Typography>
+                      <Typography variant="body2" sx={{ fontSize: '0.7rem', color: '#92939E' }}>
+                        {card.description}
+                      </Typography>
+                    </Box>
+
+                    <Avatar
+                      sx={{
+                        bgcolor: isSelected ? '#F6F1FF' : 'white',
+                        color: isSelected ? '#5B2EFF' : '#333',
+                      }}
+                    >
+                      {card.icon2}
+                    </Avatar>
+                  </Box>
+                </Box>
+              );
+            })}
+          </Stack>
         </Box>
       </Box>
     </Box>
-
-    {/* Right Panel */}
-    <Box
-      sx={{
-        width: { xs: '100%', md: '50%' },
-        p: { xs: 3, md: 5 },
-        backgroundColor: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-      }}
-    >
-      <Box sx={{ mx: 'auto', width: '100%', maxWidth: 420 }}>
-        <Typography sx={{ fontWeight: 'bold', mb: 1, textAlign: 'center' }}>
-          Join The Worsship Family!
-        </Typography>
-        <Typography sx={{ color: '#666', mb: 3, textAlign: 'center', fontSize: 15 }}>
-          Let’s get started by telling us which kind of faith platform you’re setting up.
-        </Typography>
-
-        {/* Option Boxes (No Cards) */}
-        <Stack spacing={2} alignItems="center">
-          {cardOptions.map((card) => {
-            const isSelected = selectedKey === card.key;
-            return (
-              
-            
-              <Box
-                key={card.key}
-                onClick={() => Go(card.key)}
-                sx={{
-                  width: '100%',
-                  maxWidth: 350,
-                  borderRadius: 3,
-                  border: isSelected ? '2px solid #5B2EFF' : '1px solid #E0E0E0',
-                  cursor: 'pointer',
-                  transition: '0.2s',
-                  '&:hover': {
-                    boxShadow: 3,
-                  },
-                  backgroundColor: isSelected ? '#F6F1FF' : 'white',
-                  px: 3,
-                  py: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 2,
-                }}
-              >
-                <Avatar
-                  sx={{
-                    bgcolor: isSelected ? '#5B2EFF' : '#F3F3F3',
-                    color: isSelected ? '#fff' : '#333',
-                  }}
-                >
-                  {card.icon}
-                </Avatar>
-
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    width: '100%',
-                  }}
-                >
-                  <Box>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 600, fontSize: '0.6rem' }}>
-                      {card.title}
-                    </Typography>
-                    <Typography variant="body2" sx={{ fontSize: '0.65rem', color: '#92939E' }}>
-                      {card.description}
-                    </Typography>
-                  </Box>
-
-                  <Avatar
-                    sx={{
-                      bgcolor: isSelected ? '#F6F1FF' : 'white',
-                      color: isSelected ? '#5B2EFF' : '#333',
-                    }}
-                  >
-                    {card.icon2}
-                  </Avatar>
-                </Box>
-              </Box>
-               
-            );
-          })}
-        </Stack>
-      </Box>
-    </Box>
-  </Box>
-);
-
+  );
 };
 
-export default WorsshipCard;
+export default SelectPlatform;

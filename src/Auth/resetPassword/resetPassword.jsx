@@ -32,7 +32,8 @@ const ResetPassword = () => {
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        mt:8,
+       // alignItems: "center",
       //  backgroundColor: "#0A0047", // Dark background
         p: 2,
       }}

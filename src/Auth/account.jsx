@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -27,6 +27,10 @@ const AuthScreen = () => {
     const [checked, setChecked] = useState(false);
 
     const navigate = useNavigate()
+
+
+    
+ 
 
 
 
@@ -100,7 +104,7 @@ const AuthScreen = () => {
         </Box>
 
         <Box sx={{ position: "relative", zIndex: 1 }}>
-          <Typography variant="h6" sx={{ color: "#fff", fontWeight: 700 }}>
+          <Typography sx={{ color: "#fff", fontWeight: 700, fontSize:14 }}>
             Experience Worship, Anytime, Anywhere
           </Typography>
           <Typography variant="body2" sx={{ color: "#fff", mt: 1 }}>
@@ -112,12 +116,13 @@ const AuthScreen = () => {
       {/* Right Panel */}
       <Box
         sx={{
-          width: { xs: "100%", md: "50%" },
+          width: { xs: "82%", md: "50%" },
           p: { xs: 3, md: 6 },
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           backgroundColor: "#fff",
+        //  maxWidth:{xs:330}
         }}
       >
         <Box sx={{ maxWidth: 400, mx: "auto", width: "100%" }}>
@@ -194,7 +199,7 @@ const AuthScreen = () => {
           </Stack>
 
           {/* Form Fields */}
-          <Stack spacing={2}>
+          <Stack spacing={2} >
             {!isLogin && (
       
                  <form >
@@ -340,11 +345,11 @@ const AuthScreen = () => {
                      <Divider sx={{ my: 4, color: "#aaa", fontSize: 13 }}>Or</Divider> 
 
                     <Stack style={{flexDirection:'row', marginTop:-15, justifyContent:'center', alignItems:'center', gap:15}}>
-                    <Button  size="small" variant="outlined"  style={{borderRadius:'30px', gap:10, fontSize:10, borderColor:'gray', color:'gray'}} >
+                    <Button  size="small" variant="outlined"  style={{borderRadius:'30px', gap:10, fontSize:7, borderColor:'gray', color:'gray'}} >
                   <img src={vector} style={{width:15, height:15}} alt="google"/>  Continue with Google   
                   </Button>
 
-                        <Button  size="small" variant="outlined"  style={{borderRadius:'30px', gap:10, fontSize:10, borderColor:'gray', color:'gray'}} >
+                        <Button  size="small" variant="outlined"  style={{borderRadius:'30px', gap:10, fontSize:7, borderColor:'gray', color:'gray'}} >
                           <AppleIcon  style={{width:15, height:15}}/>  Continue with Apple
                   </Button>
 

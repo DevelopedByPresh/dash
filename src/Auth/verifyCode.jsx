@@ -46,7 +46,8 @@ const VerifyCode = () => {
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+       // alignItems: "center",
+       mt:8,
         p: 2,
       }}
     >

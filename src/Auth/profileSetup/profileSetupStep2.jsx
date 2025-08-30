@@ -141,7 +141,8 @@ const ProfileStep2 = () => {
       {/* Right Panel */}
       <Box
         sx={{
-          width: { xs: "100%", md: "50%" },
+        //  width: { xs: "100%", md: "50%" },
+        width: { xs: "82%", md: "50%" },
           p: { xs: 3, md: 6 },
           display: "flex",
           flexDirection: "column",
